@@ -344,14 +344,22 @@
     gap: 16px;
   }
   .constellation-card {
+    width: 100%;
     background: linear-gradient(135deg, rgba(20,8,4,0.9), rgba(10,4,2,0.95));
     border: 1px solid rgba(200,80,40,0.15);
     border-radius: 14px;
     padding: 20px;
     text-align: center;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
+  }
+  .constellation-card:focus-visible {
+    outline: 2px solid #ffa080;
+    outline-offset: 3px;
   }
   .constellation-card:hover {
     border-color: rgba(255,100,40,0.5);
@@ -363,6 +371,7 @@
     box-shadow: 0 0 35px rgba(255,60,10,0.2);
   }
   .constellation-card .c-level {
+    display: block;
     font-size: 28px;
     font-weight: 900;
     color: #c05030;
@@ -370,12 +379,14 @@
     text-shadow: 0 0 15px rgba(200,50,20,0.4);
   }
   .constellation-card .c-name {
+    display: block;
     font-size: 13px;
     color: #907060;
     letter-spacing: 0.05em;
     margin-bottom: 8px;
   }
   .constellation-card .c-effect {
+    display: block;
     font-size: 12px;
     color: #706050;
     line-height: 1.6;
@@ -676,36 +687,36 @@
         <div class="line"></div>
       </div>
       <div class="constellation-grid">
-        <div class="constellation-card activated" onclick="toggleConstellation(this)">
-          <div class="c-level">C1</div>
-          <div class="c-name">赤团开时斜飞去</div>
-          <div class="c-effect">处于彼岸蝶舞状态下，重击不消耗体力。让胡桃能够更加自如地在战场上穿梭突击。</div>
-        </div>
-        <div class="constellation-card activated" onclick="toggleConstellation(this)">
-          <div class="c-level">C2</div>
-          <div class="c-name">最不安神晴又复雨</div>
-          <div class="c-effect">血梅香造成的伤害提高，且安神秘法命中敌人时会额外施加血梅香效果。</div>
-        </div>
-        <div class="constellation-card activated" onclick="toggleConstellation(this)">
-          <div class="c-level">C3</div>
-          <div class="c-name">逗留深红色</div>
-          <div class="c-effect">蝶引来生的技能等级提高3级，至多提升至15级。</div>
-        </div>
-        <div class="constellation-card" onclick="toggleConstellation(this)">
-          <div class="c-level">C4</div>
-          <div class="c-name">伴君眠花房</div>
-          <div class="c-effect">血梅香效果影响下的敌人被击败时，队伍中所有角色（不包括胡桃）的暴击率提升12%。</div>
-        </div>
-        <div class="constellation-card" onclick="toggleConstellation(this)">
-          <div class="c-level">C5</div>
-          <div class="c-name">无可奈何燃花作香</div>
-          <div class="c-effect">安神秘法的技能等级提高3级，至多提升至15级。</div>
-        </div>
-        <div class="constellation-card" onclick="toggleConstellation(this)">
-          <div class="c-level">C6</div>
-          <div class="c-name">幽蝶能留一缕芳</div>
-          <div class="c-effect">生命值低于25%或受到足以倒下的伤害时触发：此次伤害不会倒下，且接下来10秒内所有元素抗性和物理抗性提升200%，暴击率提升100%，冷却时间60秒。胡桃对死亡的亲和在此刻达到极致。</div>
-        </div>
+        <button type="button" class="constellation-card activated" aria-pressed="true" onclick="toggleConstellation(this)">
+          <span class="c-level">C1</span>
+          <span class="c-name">赤团开时斜飞去</span>
+          <span class="c-effect">处于彼岸蝶舞状态下，重击不消耗体力。让胡桃能够更加自如地在战场上穿梭突击。</span>
+        </button>
+        <button type="button" class="constellation-card activated" aria-pressed="true" onclick="toggleConstellation(this)">
+          <span class="c-level">C2</span>
+          <span class="c-name">最不安神晴又复雨</span>
+          <span class="c-effect">血梅香造成的伤害提高，且安神秘法命中敌人时会额外施加血梅香效果。</span>
+        </button>
+        <button type="button" class="constellation-card activated" aria-pressed="true" onclick="toggleConstellation(this)">
+          <span class="c-level">C3</span>
+          <span class="c-name">逗留深红色</span>
+          <span class="c-effect">蝶引来生的技能等级提高3级，至多提升至15级。</span>
+        </button>
+        <button type="button" class="constellation-card" aria-pressed="false" onclick="toggleConstellation(this)">
+          <span class="c-level">C4</span>
+          <span class="c-name">伴君眠花房</span>
+          <span class="c-effect">血梅香效果影响下的敌人被击败时，队伍中所有角色（不包括胡桃）的暴击率提升12%。</span>
+        </button>
+        <button type="button" class="constellation-card" aria-pressed="false" onclick="toggleConstellation(this)">
+          <span class="c-level">C5</span>
+          <span class="c-name">无可奈何燃花作香</span>
+          <span class="c-effect">安神秘法的技能等级提高3级，至多提升至15级。</span>
+        </button>
+        <button type="button" class="constellation-card" aria-pressed="false" onclick="toggleConstellation(this)">
+          <span class="c-level">C6</span>
+          <span class="c-name">幽蝶能留一缕芳</span>
+          <span class="c-effect">生命值低于25%或受到足以倒下的伤害时触发：此次伤害不会倒下，且接下来10秒内所有元素抗性和物理抗性提升200%，暴击率提升100%，冷却时间60秒。胡桃对死亡的亲和在此刻达到极致。</span>
+        </button>
       </div>
     </div>
   </div>
@@ -842,7 +853,8 @@
 
   // 命之座点击切换激活状态
   function toggleConstellation(card) {
-    card.classList.toggle('activated');
+    const isActivated = card.classList.toggle('activated');
+    card.setAttribute('aria-pressed', String(isActivated));
   }
 
   // 属性条动画
